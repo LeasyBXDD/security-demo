@@ -4,7 +4,7 @@
 
       <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="horizontal" :style="{ lineHeight: '64px' }">
         <a-menu-item key="1">
-          <router-link to="/home">介绍</router-link>
+          <router-link to="/">介绍</router-link>
         </a-menu-item>
         <a-menu-item key="2">
           <router-link to="/vp">【我们】VP Sentinel 安全声纹识别模型</router-link>
