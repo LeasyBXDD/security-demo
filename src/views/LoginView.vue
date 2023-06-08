@@ -27,7 +27,7 @@
 
             <a-form-item>
                 <a-button :disabled="disabled" type="primary" html-type="submit" class="login-form-button">
-                    <router-link to="/home">登录</router-link>
+                    <router-link to="/">登录</router-link>
                 </a-button>
                 <a href="./register"><span style="color: black; margin-left: 10px;">或</span><span style="margin-left: 10px;">立即注册</span></a>
             </a-form-item>

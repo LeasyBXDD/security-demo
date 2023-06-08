@@ -30,7 +30,7 @@
 
             <a-form-item>
                 <a-button :disabled="disabled" type="primary" html-type="submit" class="login-form-button">
-                    <router-link to="/home">注册</router-link>
+                    <router-link to="/login">注册</router-link>
                 </a-button>
             </a-form-item>
         </a-form>
