@@ -1,6 +1,6 @@
 <template>
   <a-layout class="layout">
-    <a-layout-header>
+    <a-layout-header :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
 
       <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="horizontal" :style="{ lineHeight: '64px' }">
         <a-menu-item key="1">
@@ -32,7 +32,7 @@
     </a-layout-header>
 
 
-    <a-layout-content style="padding: 0 50px; margin-top: 18px;">
+    <a-layout-content style="padding: 0 50px; margin-top: 80px;">
       <div :style="{ background: '#fff', padding: '24px', minHeight: '660px' }">
         <div>
           <router-view />
