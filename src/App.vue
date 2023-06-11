@@ -7,19 +7,19 @@
           <router-link to="/">介绍</router-link>
         </a-menu-item>
         <a-menu-item key="2">
-          <router-link to="/vp">【我们】VP Sentinel 安全声纹识别模型</router-link>
+          <router-link to="/vp">【ours】VP Sentinel 安全声纹识别模型</router-link>
         </a-menu-item>
         <a-menu-item key="3">
-          <router-link to="/ogone">【现有】A 声纹识别模型</router-link>
+          <router-link to="/ogone">ECAPA-TDNN 声纹识别模型</router-link>
         </a-menu-item>
         <a-menu-item key="4">
-          <router-link to="/ogtwo">【现有】B 声纹识别模型</router-link>
+          <router-link to="/ogtwo">x-vector 声纹识别模型</router-link>
         </a-menu-item>
         <a-menu-item key="5">
-          <router-link to="/ogthree">【现有】C 声纹识别模型</router-link>
+          <router-link to="/ogthree">r-vector 声纹识别模型</router-link>
         </a-menu-item>
         <a-menu-item key="6">
-          <router-link to="/ogfour">【现有】D 声纹识别模型</router-link>
+          <router-link to="/ogfour">ResNet 声纹识别模型</router-link>
         </a-menu-item>
         <a-menu-item key="7" style="margin-left: 0px;">
           <router-link to="/login">登录</router-link>
