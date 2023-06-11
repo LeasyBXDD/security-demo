@@ -6,7 +6,7 @@
     
     <div>
         <a-upload v-model:file-list="fileList" name="file" action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-            :headers="headers" @change="handleChange">
+            :headers="headers" @change="handleChange" multiple="true">
             <a-button style="margin: 8px; margin-bottom: 0px;">
                 <upload-outlined></upload-outlined>
                 点击上传
@@ -83,7 +83,7 @@ export default defineComponent({
         return {
             focus,
             handleChangeSelect,
-            value1: ref('请选择音频类型'),
+            value1: ref('普通/对抗 模式切换'),
             fileList,
             headers: {
                 authorization: 'authorization-text',
