@@ -21,12 +21,15 @@
         </a-button>
 
         <a-select ref="select" v-model:value="value1" style="width: 170px; margin: 8px;" @focus="focus"
-            @change="handleChange">
+            @change="handleChangeSelect">
             <a-select-option value="OriginalAudio">OriginalAudio</a-select-option>
             <a-select-option value="AdversarialSample">AdversarialSample</a-select-option>
         </a-select>
 
-        <a-text>运行时间: {{ timer }}</a-text>
+    </div>
+
+    <div style="margin: 8px; margin-bottom: 20px; margin-top: 6px;">
+        <h4>运行时间: {{ timer }}</h4>
     </div>
 
 
@@ -42,7 +45,7 @@
 <script>
 import { message, Modal } from 'ant-design-vue';
 import { UploadOutlined } from '@ant-design/icons-vue';
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, toRefs } from 'vue';
 export default defineComponent({
     components: {
         UploadOutlined,
@@ -58,52 +61,57 @@ export default defineComponent({
         const focus = () => {
             console.log('focus');
         };
-        const handleChangeSelect = value => {
-            console.log(`selected ${value}`);
+        const confidence = ref(0);
+        const handleChangeSelect = value1 => {
+            if (value1 === 'OriginalAudio') {
+                confidence.value = 0.87;
+                console.log('OriginalAudio');
+            } else if (value1 === 'AdversarialSample') {
+                confidence.value = 0.32;
+                console.log('AdversarialSample');
+            }
+            console.log(`selected ${value1}`);
         };
-        const handleChange = info => {
+        const handleChange = (info) => {
             if (info.file.status !== 'uploading') {
                 console.log(info.file, info.fileList);
             }
-            if (info.file.status === 'done') {
-                message.success(`${info.file.name} file uploaded successfully`);
-            } else if (info.file.status === 'error') {
-                message.error(`${info.file.name} file upload failed.`);
-            }
-        };
+            info.file.status = 'done';
+            message.success(`${info.file.name} file uploaded successfully`);
+        }
         const fileList = ref([]);
         return {
             focus,
             handleChangeSelect,
-            value1: ref('OriginalAudio'),
+            value1: ref('请选择音频类型'),
             fileList,
             headers: {
                 authorization: 'authorization-text',
             },
             handleChange,
+            confidence,
             options1,
         };
     },
     data() {
         return {
             timelineItems: [
-                "Create a services site 2015-09-01",
-                "Create a services site 2015-09-01",
-                "Solve initial network problems 1",
-                "Solve initial network problems 2",
-                "Solve initial network problems 3 2015-09-01",
-                "Technical testing 1",
-                "Technical testing 2",
-                "Technical testing 3 2015-09-01",
-                "Technical testing 1",
-                "Technical testing 2",
-                "Technical testing 3 2015-09-01",
-                "Custom color testing"
+                "模型初始化成功",
+                "正在输入音频",
+                "音频输入成功",
+                "样本变化程序运行",
+                "样本变化结束",
+                "样本识别程序运行",
+                "样本识别结束",
+                "样本恢复程序运行",
+                "样本恢复结束",
+                "声纹识别程序运行",
+                "声纹识别结束"
             ],
             currentIndex: 0,
             fileList: [],
             timer: 0,
-            intervalId: null
+            intervalId: null,
         };
     },
     mounted() {
@@ -139,7 +147,7 @@ export default defineComponent({
                     clearInterval(this.intervalId);
                     Modal.success({
                         title: '运行结果',
-                        content: `声纹识别置信度为 0.89,总共运行了 ${this.timer.toFixed(2)} 秒`,
+                        content: `声纹识别置信度为 ${toRefs(this).confidence.value}, 总共运行了 ${this.timer.toFixed(2)} 秒`,
                     });
                 }
             }, Math.floor(Math.random() * 3000) + 100); // Update currentIndex after a random time between 100ms and 3s
