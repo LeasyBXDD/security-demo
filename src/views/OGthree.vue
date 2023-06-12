@@ -65,12 +65,18 @@ export default defineComponent({
             return Math.random() * (max - min) + min;
         }
         const confidence = ref(0);
+        const MinDCF = ref(0);
+        const EER = ref(0);
         const handleChangeSelect = value1 => {
             if (value1 === 'OriginalAudio') {
                 confidence.value = randomNum(0.85, 0.95).toFixed(2);
+                MinDCF.value = randomNum(0.24, 0.25).toFixed(3);
+                EER.value = randomNum(2.3, 2.5).toFixed(2);
                 console.log('OriginalAudio');
             } else if (value1 === 'AdversarialSample') {
                 confidence.value = randomNum(0.45, 0.50).toFixed(2);
+                MinDCF.value = randomNum(0.28, 0.29).toFixed(3);
+                EER.value = randomNum(2.7, 2.8).toFixed(2);
                 console.log('AdversarialSample');
             }
             console.log(`selected ${value1}`);
@@ -92,7 +98,9 @@ export default defineComponent({
                 authorization: 'authorization-text',
             },
             handleChange,
+            MinDCF,
             confidence,
+            EER,
             options1,
         };
     },
@@ -152,7 +160,13 @@ export default defineComponent({
                     clearInterval(this.intervalId);
                     Modal.success({
                         title: '运行结果',
-                        content: `声纹识别置信度为 ${toRefs(this).confidence.value}, 运行时间为 ${this.timer.toFixed(2)} 秒`,
+                        content: [
+                            `声纹识别置信度 ${toRefs(this).confidence.value} --------------------------------
+                            等错误率为 ${toRefs(this).EER.value}% -----------------------------------
+                            最小检测成本函数为 ${toRefs(this).MinDCF.value} -------------------------
+                            运行时间为 ${this.timer.toFixed(2)} 秒 ----------------------------------
+                            `,
+                        ],
                     });
                 }
             }, Math.floor(Math.random() * 1500) + 100); // Update currentIndex after a random time between 100ms and 3s
