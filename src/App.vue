@@ -42,7 +42,8 @@
 
 
     <a-layout-footer style="text-align: center">
-      VP Sentinel：基于GAN的安全声纹识别系统
+      <p>VP Sentinel：基于GAN的安全声纹识别系统</p>
+      <p>第十六届全国大学生信息安全竞赛</p>
     </a-layout-footer>
 
 
