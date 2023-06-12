@@ -8,7 +8,7 @@
             <p><span>本项目利用生成对抗网络（GAN）、CLEVER算法、声纹样本变换和分类器等技术，在移动端和Web端实现一种相比于现有的声纹识别模型具备更强抗对抗样本攻击能力，且可以识别对抗样本中原始信息的声纹识别系统。该系统基于生成对抗网络（GAN），利用样本变换方法和分类器技术提高判别器的鲁棒性。当判别器识别出被人为添加扰动的对抗样本时，系统通过CLEVER算法对对抗样本进行样本恢复，识别样本中的原始信息。</span>
             </p>
             <p><span>本系统已经部署在移动端和Web端。系统运行流程如图3所示。</span></p>
-            <p><strong><img src="../../public/1.png" referrerpolicy="no-referrer" alt="img"></strong></p>
+            <p><strong><img src="../../1.png" referrerpolicy="no-referrer" alt="img"></strong></p>
             <center style="font-weight: bolder;">图1 系统运行流程</center>
             <h2 id='22--系统设计'><span style="font-weight: bolder;">2.2 系统设计</span></h2>
             <p><span>VP
@@ -20,7 +20,7 @@
             <p><span>3. 基于样本变换的样本数据增强模块</span></p>
             <p><span>4. 基于GAN的对抗样本识别模块</span></p>
             <p><span>5. 基于CLEVER距离恢复算法的对抗样本恢复模块</span></p>
-            <p><img src="../../public/2.png" referrerpolicy="no-referrer" alt="img"></p>
+            <p><img src="../../2.png" referrerpolicy="no-referrer" alt="img"></p>
             <center style="font-weight: bolder;">
                 图1 模块关系图
             </center>
