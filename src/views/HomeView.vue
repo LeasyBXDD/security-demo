@@ -20,7 +20,7 @@
             <p><span>3. 基于样本变换的样本数据增强模块</span></p>
             <p><span>4. 基于GAN的对抗样本识别模块</span></p>
             <p><span>5. 基于CLEVER距离恢复算法的对抗样本恢复模块</span></p>
-            <p><img src="../../public/1.png" referrerpolicy="no-referrer" alt="img"></p>
+            <p><img src="../../public/2.png" referrerpolicy="no-referrer" alt="img"></p>
             <center style="font-weight: bolder;">
                 图1 模块关系图
             </center>
