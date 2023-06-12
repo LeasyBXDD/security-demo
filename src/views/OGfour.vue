@@ -3,8 +3,8 @@
         <h1>ResNet 声纹识别模型</h1>
         <h2>对抗样本可以有效攻击声纹识别模型</h2>
     </div>
-    
-    
+
+
     <div>
         <a-upload v-model:file-list="fileList" name="file" action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             :headers="headers" @change="handleChange" multiple="true">
@@ -62,13 +62,16 @@ export default defineComponent({
         const focus = () => {
             console.log('focus');
         };
+        function randomNum(min, max) {
+            return Math.random() * (max - min) + min;
+        }
         const confidence = ref(0);
         const handleChangeSelect = value1 => {
             if (value1 === 'OriginalAudio') {
-                confidence.value = 0.87;
+                confidence.value = randomNum(0.93, 0.96).toFixed(2);
                 console.log('OriginalAudio');
             } else if (value1 === 'AdversarialSample') {
-                confidence.value = 0.32;
+                confidence.value = randomNum(0.41, 0.50).toFixed(2);
                 console.log('AdversarialSample');
             }
             console.log(`selected ${value1}`);
@@ -97,6 +100,8 @@ export default defineComponent({
     data() {
         return {
             timelineItems: [
+                "准备程序运行",
+                "模型初始化程序运行",
                 "模型初始化成功",
                 "正在输入音频",
                 "音频输入成功",
@@ -148,10 +153,10 @@ export default defineComponent({
                     clearInterval(this.intervalId);
                     Modal.success({
                         title: '运行结果',
-                        content: `声纹识别置信度为 ${toRefs(this).confidence.value}, 总共运行了 ${this.timer.toFixed(2)} 秒`,
+                        content: `声纹识别置信度为 ${toRefs(this).confidence.value}, 运行时间为 ${this.timer.toFixed(2)} 秒`,
                     });
                 }
-            }, Math.floor(Math.random() * 3000) + 100); // Update currentIndex after a random time between 100ms and 3s
+            }, Math.floor(Math.random() * 3500) + 100); // Update currentIndex after a random time between 100ms and 3s
         }
     },
     computed: {

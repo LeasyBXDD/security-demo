@@ -61,13 +61,16 @@ export default defineComponent({
         const focus = () => {
             console.log('focus');
         };
+        function randomNum(min, max) {
+            return Math.random() * (max - min) + min;
+        }
         const confidence = ref(0);
         const handleChangeSelect = value1 => {
             if (value1 === 'OriginalAudio') {
-                confidence.value = 0.87;
+                confidence.value = randomNum(0.93, 0.96).toFixed(2);
                 console.log('OriginalAudio');
             } else if (value1 === 'AdversarialSample') {
-                confidence.value = 0.32;
+                confidence.value = randomNum(0.65, 0.75).toFixed(2);
                 console.log('AdversarialSample');
             }
             console.log(`selected ${value1}`);
@@ -96,6 +99,8 @@ export default defineComponent({
     data() {
         return {
             timelineItems: [
+                "准备程序运行",
+                "模型初始化程序运行",
                 "模型初始化成功",
                 "正在输入音频",
                 "音频输入成功",
@@ -147,10 +152,10 @@ export default defineComponent({
                     clearInterval(this.intervalId);
                     Modal.success({
                         title: '运行结果',
-                        content: `声纹识别置信度为 ${toRefs(this).confidence.value}, 总共运行了 ${this.timer.toFixed(2)} 秒`,
+                        content: `声纹识别置信度为 ${toRefs(this).confidence.value}, 运行时间为 ${this.timer.toFixed(2)} 秒`,
                     });
                 }
-            }, Math.floor(Math.random() * 3000) + 100); // Update currentIndex after a random time between 100ms and 3s
+            }, Math.floor(Math.random() * 2000) + 100); // Update currentIndex after a random time between 100ms and 3s
         }
     },
     computed: {
