@@ -42,7 +42,7 @@
 
 
     <a-layout-footer style="text-align: center">
-      Leeasy ©2023 Created at HZNU
+      VP Sentinel：基于GAN的安全声纹识别系统
     </a-layout-footer>
 
 
