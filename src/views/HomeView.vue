@@ -9,7 +9,7 @@
             </p>
             <p><span>本系统已经部署在移动端和Web端。系统运行流程如图3所示。</span></p>
             <p><strong><img src="../../public/1.png" referrerpolicy="no-referrer" alt="img"></strong></p>
-            <center>图3 系统运行流程</center>
+            <center style="font-weight: bolder;">图1 系统运行流程</center>
             <h2 id='22--系统设计'><span style="font-weight: bolder;">2.2 系统设计</span></h2>
             <p><span>VP
                     Sentinel是一个基于GAN和分类器防御技术的安全声纹识别系统，该系统采用了基于深度神经网络的d-vector模型来提取声纹特征，基于时延神经网络（TDNN）的声纹模型来构建声纹识别模型，采用GAN深度学习算法和分类器防御来识别对抗样本。同时在将样本输入到判别器之前，对其进行了样本变换，以便加大真实样本和对抗样本之间的内在属性差异，更有利于判别器的判别。最后我们采用了一种基于CLEVER距离恢复的对抗样本恢复方法，对对抗样本进行样本恢复，恢复对抗样本中存在的原始信息。</span>
@@ -21,8 +21,8 @@
             <p><span>4. 基于GAN的对抗样本识别模块</span></p>
             <p><span>5. 基于CLEVER距离恢复算法的对抗样本恢复模块</span></p>
             <p><img src="../../public/1.png" referrerpolicy="no-referrer" alt="img"></p>
-            <center>
-                图4 模块关系图
+            <center style="font-weight: bolder;">
+                图1 模块关系图
             </center>
             <p><span>下面对这五个模块进行详细说明。</span></p>
             <p><strong><span style="font-weight: bolder;">1．基于GAN的对抗样本生成模块</span></strong></p>
