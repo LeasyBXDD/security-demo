@@ -55,7 +55,7 @@ export default defineComponent({
   
   setup() {
     return {
-      selectedKeys: ref(['7']),
+      selectedKeys: ref(['1']),
     };
   },
 });

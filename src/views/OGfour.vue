@@ -30,7 +30,7 @@
     </div>
 
     <div style="margin: 8px; margin-bottom: 20px; margin-top: 6px;">
-        <h4>运行时间: {{ timer }}</h4>
+        <h4>运行时间: {{ this.timer.toFixed(2) }}</h4>
     </div>
 
 
